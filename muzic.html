@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+	<title>Page Title</title>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link href="https://fonts.googleapis.com/css?family=Do+Hyeon" rel="stylesheet">
+	<link rel="stylesheet" href="css/index.css" />
+	<link rel="stylesheet" href="css/music.css" />
+
+	</head>
+	<body>
+		<div class="header">
+			<h1>Arsenal</h1>
+			<p>THIS WEBSITE IS ABOUT ARSENAL</p>
+		</div>
+		<div class="nav_bar">
+			<a href="index.html">HOME</a>
+			<a href="member.html">MEMBER</a>
+			<a href="page2.html">LEGEND</a>
+			<a href="todo.html">해야하는것들정리</a>
+			<a href="muzic.html">음악만들기</a>
+			<a href="page5.html"></a>
+		</div>
+		<div class="content">
+			<div class="side">
+				<div>
+					--ABOUT ARSENAL--
+				</div>
+				<div> 아스널 풋볼 클럽은 런던을 연고지로 홀로웨이의 에미레이츠 스타디움을 홈구장으로 하는 잉글랜드의 축구 클럽이다. 주장은 로랑 코시엘니이며, 잉글랜드의 1부 리그인 프리미어리그에 속해 있다. 아스널 FC(이하 아스널)는 현재 잉글랜드에서 가장 성공한 클럽들 중 하나이며, 13번의 리그 우승을 이뤘고, FA컵에서 13번의 우승으로 맨체스터 유나이티드를 제치고 잉글랜드 최다 우승 기록을 가지고있다. 그리고 당시 풋볼 리그 1919-20 시즌부터 시작하여 그 동안 한번도 2부 리그로 강등되지 않아 연속적으로 가장 오랫동안 1부 리그에 잔류하고 있는 기록을 세우고 있는 팀이기도 하다.
+					<br><br>
+					
+					<br>
+					<br>
+					<br>
+					<br>
+					<br>
+					<br>
+					<br>
+					<br>
+					<br>
+
+				</div>
+
+			</div>
+			<div class="main">
+				 <div id="app" @mouseUp="unselectKnobs">
+    <div class="knob-container">
+      <div class="rela-block container">
+        <div v-for="effect in effects" class="rela-inline effect-container" @mouseDown="effect.selected = true;">
+          <div class="rela-block effect-label">
+            <div class="rela-inline effect-active-light" :style="{'background-color': effect.active?effect.color:'#888'}" @click="effect.active = !effect.active"></div>
+            {{effect.label}}
+          </div>
+          <div class="rela-block knob-container">
+            <div v-for="knob in effect.knobs" :class="['rela-inline', 'knob', 'style'+effect.knobStyle]">
+              <div class="rela-block knob-dial" :style="{'color':effect.active?effect.color:'#888'}">
+                <div class="abs-center dial-grip" :style="{'transform': 'translate(-50%,-50%) rotate('+knob.rotation+'deg)'}" @mouseDown.prevent="selectKnob(knob, $event);"></div>
+                <svg class="dial-svg" viewBox="0 0 100 100">
+  <path d="M20,76 A 40 40 0 1 1 80 76" fill="none" stroke="#55595C"/>
+  <path d="M20,76 A 40 40 0 1 1 80 76" fill="none" :stroke="effect.active?effect.color:'#888'" 
+  :style="{'stroke-dashoffset':184 - 184*((knob.rotation*1 + 132)/264)}"/>
+  </svg>
+              </div>
+              <div class="rela-block knob-label" :style="{'color':effect.active?'#E4E8EA':'#888'}">{{knob.label}}</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div id="sequencer">
+      <div id="buttons">
+        <button v-on:click="start" :disabled="isPlaying">▶️ Start</button>
+        <button v-on:click="stop" :disabled="!isPlaying">⏹ Stop</button>
+        <button v-on:click="rewind">⏪ Rewind</button>
+        <button v-on:click="clear">🗑 Clear</button>
+        <select v-model="oscillatorType">
+          <option>sine</option>
+          <option>square</option>
+          <option>sawtooth</option>
+          <option>triangle</option>
+        </select>
+      </div>
+      <div v-for="(row, rowIndex) in notes">
+        <span v-for="(note, noteIndex) in row">
+          <label>
+            <input type="checkbox" v-model="note.value" />
+            <span :class="current === noteIndex ? 'current' : ''"></span>
+          </label>
+        </span>
+      </div>
+    </div>
+  </div>
+ 
+				
+
+
+
+
+
+	            
+
+			</div>
+		</div>
+		<div class="footer">
+			THIS WEBSITE IS CREATED BY YOU CHAN JUNG.<br>
+			IF YOU HAVE QUESTIONS CONTACT BELOW.<br>
+			wangja1234567@gmail.com<br>
+		</div>
+
+
+
+
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/vue/2.5.17/vue.min.js"></script>
+		 <script src="js/music.js"></script>
+	</body>
+</html>
+
